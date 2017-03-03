@@ -41,14 +41,14 @@ Just install the needed packages for this project by running:
 npm install
 ```
 
-Afterwards `neon` will instantly build the project. Now move the build file from `native/` to the
-corresponding `dist/` directory.
-
-To rebuild this project, simply run:
+And build the project by running:
 
 ```bash
-neon build
+npm run build
 ```
+
+Now move the build file from `native/` to the
+corresponding `dist/` directory.
 
 To test it with node, run:
 

@@ -7,7 +7,7 @@
   "main": "lib/index.js",
   "name": "libsodium-neon",
   "scripts": {
-    "install": "neon build"
+    "build": "neon build"
   },
   "version": "1.0.0"
 }
