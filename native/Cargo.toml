@@ -1,0 +1,18 @@
+[package]
+name = "libsodium-neon"
+version = "1.0.0"
+authors = ["Wire Swiss GmbH <support@wire.com>"]
+build = "build.rs"
+license = "GPL-3.0"
+
+[lib]
+name = "libsodium_neon"
+crate-type = ["dylib"]
+
+[build-dependencies]
+neon-build = "0.1.13"
+
+[dependencies]
+libc = "> 0.1.0"
+neon = "0.1.13"
+sodiumoxide = { git = "https://github.com/wireapp/sodiumoxide", features = ["get-libsodium"] }

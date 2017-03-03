@@ -1,0 +1,11 @@
+native/target
+native/Cargo.lock
+native/index.node
+**/*~
+**/node_modules
+**/.DS_Store
+npm-debug.log
+
+# IntelliJ
+/.idea
+/debug.log

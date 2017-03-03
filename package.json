@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "neon-cli": "0.1.13"
+  },
+  "description": "Node.js bindings to sodiumoxide.",
+  "license": "GPL-3.0",
+  "main": "lib/index.js",
+  "name": "libsodium-neon",
+  "scripts": {
+    "install": "neon build"
+  },
+  "version": "1.0.0"
+}
