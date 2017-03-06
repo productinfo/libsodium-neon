@@ -25,10 +25,8 @@ mod external;
 mod internal;
 
 use internal::auth;
-use internal::hash;
 use internal::scalarmult;
 use internal::sign;
-use internal::stream;
 
 pub fn init() -> bool {
   sodiumoxide::init()
@@ -36,14 +34,11 @@ pub fn init() -> bool {
 
 register_module!(m, {
   m.export("crypto_auth_hmacsha256", auth::crypto_auth_hmacsha256)?;
-  m.export("crypto_auth_hmacsha256_verify", auth::crypto_auth_hmacsha256_verify)?;
-  m.export("crypto_hash_sha256", hash::crypto_hash_sha256)?;
   m.export("crypto_scalarmult", scalarmult::crypto_scalarmult)?;
   m.export("crypto_sign_detached", sign::crypto_sign_detached)?;
   m.export("crypto_sign_ed25519_pk_to_curve25519", sign::crypto_sign_ed25519_pk_to_curve25519)?;
   m.export("crypto_sign_ed25519_sk_to_curve25519", sign::crypto_sign_ed25519_sk_to_curve25519)?;
   m.export("crypto_sign_keypair", sign::crypto_sign_keypair)?;
   m.export("crypto_sign_verify_detached", sign::crypto_sign_verify_detached)?;
-  m.export("crypto_stream_chacha20_xor", stream::crypto_stream_chacha20_xor)?;
   Ok(())
 });

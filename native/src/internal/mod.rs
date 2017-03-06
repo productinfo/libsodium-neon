@@ -17,8 +17,6 @@
 //
 
 pub mod auth;
-pub mod hash;
 pub mod scalarmult;
 pub mod sign;
-pub mod stream;
 pub mod utils;

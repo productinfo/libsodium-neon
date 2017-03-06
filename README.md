@@ -59,17 +59,16 @@ node -e "console.log(require('./').crypto_sign_keypair());"
 
 ## Speed comparison
 
+`macOS 10.12 @ 2.6 GHz Intel Core i7, 16 GB RAM`
+
 |**Function**                            |    **ops/sec** |      **ops/sec** | **times faster** |
 |:---------------------------------------|---------------:|-----------------:|-----------------:|
 |                                        | `libsodium.js` | `libsodium-neon` |                  |
-| `crypto_auth_hmacsha256`               |         65,364 |      **72,274**  |             1.11 |
-| `crypto_auth_hmacsha256_verify`        |         73,563 |     **244,108**  |             3.32 |
-| `crypto_hash_sha256`                   |    **152,876** |          81,748  |            -1.87 |
-| `crypto_scalarmult`                    |             88 |      **12,474**  |           141.75 |
-| `crypto_sign_detached`                 |            259 |      **13,925**  |            53.76 |
-| `crypto_sign_ed25519_pk_to_curve25519` |            616 |      **34,522**  |            56.04 |
-| `crypto_sign_ed25519_sk_to_curve25519` |         13,765 |      **91,019**  |             6.61 |
-| `crypto_sign_keypair`                  |            286 |      **11,804**  |            41.27 |
-| `crypto_stream_chacha20_xor`           |    **262,468** |         105,043  |            -2.50 |
+| `crypto_auth_hmacsha256`               |         51,156 |      **55,562**  |             1.09 |
+| `crypto_scalarmult`                    |             86 |       **6,129**  |            70.80 |
+| `crypto_sign_detached`                 |            251 |       **6,277**  |            25.01 |
+| `crypto_sign_ed25519_pk_to_curve25519` |            596 |      **21,030**  |            35.29 |
+| `crypto_sign_ed25519_sk_to_curve25519` |         13,390 |      **90,650**  |             6.77 |
+| `crypto_sign_keypair`                  |            276 |       **6,602**  |            23.92 |
 |                                        |                |                  |                  |
-| **Average**                            |     **63,254** |      **74,102**  |         **1.17** |
+| **Average**                            |         10,959 |      **31,042**  |             2.83 |

@@ -17,12 +17,10 @@
 //
 
 use internal::utils::*;
-use neon::js::JsBoolean;
 use neon::js::error::{JsError, Kind};
 use neon::js::binary::JsBuffer;
 use neon::vm::{Call, JsResult, Lock};
 use sodiumoxide::crypto::auth::hmacsha256 as mac;
-use sodiumoxide::crypto::auth::hmacsha256::{Key, Tag};
 
 pub fn crypto_auth_hmacsha256(mut call: Call) -> JsResult<JsBuffer> {
   let mut message_buf = call.check_argument::<JsBuffer>(0)?;
@@ -40,18 +38,4 @@ pub fn crypto_auth_hmacsha256(mut call: Call) -> JsResult<JsBuffer> {
   buf_copy_from_slice(authenticator.as_ref(), &mut result_buf);
 
   Ok(result_buf)
-}
-
-pub fn crypto_auth_hmacsha256_verify(mut call: Call) -> JsResult<JsBoolean> {
-  let mut tag_buf = call.check_argument::<JsBuffer>(0)?;
-  let mut message_buf = call.check_argument::<JsBuffer>(1)?;
-  let mut key_buf = call.check_argument::<JsBuffer>(2)?;
-
-  let tag = tag_buf.grab(|contents| contents.as_slice());
-  let message = message_buf.grab(|contents| contents.as_slice());
-  let key = key_buf.grab(|contents| contents.as_slice());
-
-  let result = mac::verify(&Tag::from_slice(tag).unwrap(), message, &Key::from_slice(key).unwrap());
-
-  Ok(JsBoolean::new(call.scope, result))
 }
