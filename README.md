@@ -29,7 +29,7 @@ const keyPair = libsodium.crypto_sign_keypair();
 ### Requirements
 
 - [Node.js](https://nodejs.org/)
-- [rustup](https://rustup.rs/)
+- Rust (use [rustup](https://rustup.rs/))
 - [Neon](https://github.com/neon-bindings/neon)
 
 
@@ -41,25 +41,22 @@ Just install the needed packages for this project by running:
 npm install
 ```
 
-And build the project by running:
+Afterwards the project will be built. For re-building run:
 
 ```bash
 npm run build
 ```
 
-Now move the build file from `native/` to the
-corresponding `dist/` directory.
-
 To test it with node, run:
 
 ```bash
-node -e "console.log(require('./').crypto_sign_keypair());"
+npm test
 ```
 
 
 ## Speed comparison
 
-`macOS 10.12 @ 2.6 GHz Intel Core i7, 16 GB RAM`
+System specs: `macOS 10.12 @ 2.6 GHz Intel Core i7, 16 GB RAM`
 
 |**Function**                            |    **ops/sec** |      **ops/sec** | **times faster** |
 |:---------------------------------------|---------------:|-----------------:|-----------------:|

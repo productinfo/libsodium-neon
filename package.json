@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "jasmine": "^2.5.3",
+    "jasmine": "2.5.3",
     "libsodium-wrappers-sumo": "0.4.9",
     "neon-cli": "0.1.13"
   },
@@ -9,7 +9,7 @@
   "main": "lib/index.js",
   "name": "libsodium-neon",
   "scripts": {
-    "build": "neon build",
+    "postinstall": "neon build",
     "test": "jasmine test"
   },
   "version": "1.0.1"
