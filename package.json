@@ -15,5 +15,5 @@
     "postinstall": "npm run build",
     "test": "jasmine test"
   },
-  "version": "2.0.1"
+  "version": "2.0.2"
 }
