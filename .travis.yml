@@ -34,6 +34,7 @@ install:
 
 # http://docs.travis-ci.com/user/pull-requests/
 script:
+  - npm run lint
   - neon build
   - npm test
 

@@ -2,17 +2,22 @@
   "dependencies": {
     "neon-cli": "0.1.13"
   },
+  "description": "Node.js bindings to sodiumoxide.",
   "devDependencies": {
+    "eslint": "3.17.1",
     "jasmine": "2.5.3",
     "libsodium-wrappers-sumo": "0.4.9"
   },
-  "description": "Node.js bindings to sodiumoxide.",
   "license": "GPL-3.0",
   "main": "lib/index.js",
   "name": "libsodium-neon",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wireapp/libsodium-neon.git"
+  },
   "scripts": {
+    "lint": "eslint .",
     "build": "neon build",
-    "postinstall": "npm run build",
     "test": "jasmine test"
   },
   "version": "2.0.2"

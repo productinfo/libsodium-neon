@@ -44,7 +44,7 @@ npm install
 Afterwards the project will be built. For re-building run:
 
 ```bash
-npm run build
+neon build
 ```
 
 To test it with node, run:
