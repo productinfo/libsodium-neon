@@ -87,9 +87,9 @@ pub fn crypto_sign_keypair(call: Call) -> JsResult<JsObject> {
   buf_copy_from_slice(&kp_secret.0, &mut kp_secret_buf);
 
   let js_object = JsObject::new(scope);
-  js_object.set("keyType", JsString::new(scope, "ed25519").unwrap())?;
-  js_object.set("publicKeyBuffer", kp_public_buf)?;
-  js_object.set("privateKeyBuffer", kp_secret_buf)?;
+  js_object.set("key_type", JsString::new(scope, "ed25519").unwrap())?;
+  js_object.set("public_key_buffer", kp_public_buf)?;
+  js_object.set("private_key_buffer", kp_secret_buf)?;
 
   Ok(js_object)
 }

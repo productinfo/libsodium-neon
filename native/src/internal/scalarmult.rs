@@ -32,12 +32,12 @@ pub fn crypto_scalarmult(mut call: Call) -> JsResult<JsBuffer> {
 
   let scalar = Scalar::from_slice(sk);
   if scalar.is_none() {
-    return JsError::throw(Kind::TypeError, "unsupported input type for secret key")
+    return JsError::throw(Kind::TypeError, "unsupported input type for secret key");
   }
 
   let element = GroupElement::from_slice(pk);
   if element.is_none() {
-    return JsError::throw(Kind::TypeError, "unsupported input type for public key")
+    return JsError::throw(Kind::TypeError, "unsupported input type for public key");
   }
 
   let shared_secret = ecdh::scalarmult(&scalar.unwrap(), &element.unwrap())

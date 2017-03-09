@@ -1,8 +1,10 @@
 {
+  "dependencies": {
+    "neon-cli": "0.1.13"
+  },
   "devDependencies": {
     "jasmine": "2.5.3",
-    "libsodium-wrappers-sumo": "0.4.9",
-    "neon-cli": "0.1.13"
+    "libsodium-wrappers-sumo": "0.4.9"
   },
   "description": "Node.js bindings to sodiumoxide.",
   "license": "GPL-3.0",
