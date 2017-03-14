@@ -17,6 +17,7 @@
   },
   "scripts": {
     "lint": "eslint .",
+    "postinstall": "npm run build",
     "build": "neon build",
     "test": "jasmine test"
   },
