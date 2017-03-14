@@ -16,9 +16,6 @@ addons:
     packages:
       - g++-4.8
 
-git:
-  submodules: false
-
 cache:
   directories:
     - $HOME/.npm
@@ -34,13 +31,8 @@ install:
 
 # http://docs.travis-ci.com/user/pull-requests/
 script:
-  - npm run lint
-  - neon build
   - npm test
+  - npm run lint
 
 notifications:
   email: false
-
-branches:
-  only:
-    - master
