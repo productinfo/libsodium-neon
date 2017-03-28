@@ -19,9 +19,10 @@
 
 'use strict';
 
-var helpers = require('../helpers');
+var path = require('path');
+var helpers = require(path.resolve(__dirname, '..', 'helpers'));
 var libsodium = require('libsodium-wrappers-sumo');
-var libsodium_neon = require('../../lib');
+var libsodium_neon = require(path.resolve(__dirname, '..', '..', 'lib'));
 
 var keypair_alice, keypair_bob, curve25519_secret_key_alice, curve25519_secret_key_bob, curve25519_public_key_bob;
 
