@@ -10,9 +10,9 @@ name = "libsodium_neon"
 crate-type = ["dylib"]
 
 [build-dependencies]
-neon-build = "0.1.14"
+neon-build = "0.1.15"
 
 [dependencies]
 libc = "> 0.1.0"
-neon = "0.1.14"
+neon = "0.1.15"
 sodiumoxide = { git = "https://github.com/wireapp/sodiumoxide", features = ["get-libsodium"] }
