@@ -17,8 +17,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "postinstall": "npm run build",
-    "build": "neon build",
+    "postinstall": "neon build",
     "test": "jasmine test"
   },
   "version": "2.0.5"
