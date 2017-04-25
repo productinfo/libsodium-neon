@@ -28,6 +28,7 @@ before_install:
 
 install:
   - npm install
+  - neon build
 
 # http://docs.travis-ci.com/user/pull-requests/
 script:

@@ -41,7 +41,7 @@ Just install the needed packages for this project by running:
 npm install
 ```
 
-Afterwards the project will be built. For re-building run:
+Afterwards you need to build the project:
 
 ```bash
 neon build
