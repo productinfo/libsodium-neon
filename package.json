@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "neon-cli": "0.1.15"
+    "neon-cli": "0.1.17"
   },
   "description": "Node.js bindings to sodiumoxide.",
   "devDependencies": {
