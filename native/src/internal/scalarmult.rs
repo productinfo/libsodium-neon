@@ -20,8 +20,8 @@ use internal::utils::*;
 use neon::js::error::{JsError, Kind};
 use neon::vm::{Call, JsResult, Lock};
 use neon::js::binary::JsBuffer;
-use sodiumoxide::crypto::scalarmult as ecdh;
-use sodiumoxide::crypto::scalarmult::{GroupElement, Scalar};
+use rust_sodium::crypto::scalarmult as ecdh;
+use rust_sodium::crypto::scalarmult::{GroupElement, Scalar};
 
 pub fn crypto_scalarmult(mut call: Call) -> JsResult<JsBuffer> {
   let mut sk_buf = call.check_argument::<JsBuffer>(0)?;

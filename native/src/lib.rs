@@ -19,7 +19,7 @@
 #[macro_use]
 extern crate neon;
 extern crate libc;
-extern crate sodiumoxide;
+extern crate rust_sodium;
 
 mod external;
 mod internal;
@@ -29,7 +29,7 @@ use internal::scalarmult;
 use internal::sign;
 
 pub fn init() -> bool {
-  sodiumoxide::init()
+  rust_sodium::init()
 }
 
 register_module!(m, {

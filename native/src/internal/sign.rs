@@ -22,8 +22,8 @@ use neon::js::{JsBoolean, JsString, JsObject, Object};
 use neon::js::binary::JsBuffer;
 use neon::js::error::{JsError, Kind};
 use neon::vm::{Call, JsResult, Lock};
-use sodiumoxide::crypto::sign;
-use sodiumoxide::crypto::sign::SecretKey;
+use rust_sodium::crypto::sign;
+use rust_sodium::crypto::sign::SecretKey;
 
 pub fn crypto_sign_detached(mut call: Call) -> JsResult<JsBuffer> {
   let mut message_buf = call.check_argument::<JsBuffer>(0)?;

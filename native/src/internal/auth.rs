@@ -20,7 +20,7 @@ use internal::utils::*;
 use neon::js::error::{JsError, Kind};
 use neon::js::binary::JsBuffer;
 use neon::vm::{Call, JsResult, Lock};
-use sodiumoxide::crypto::auth::hmacsha256 as mac;
+use rust_sodium::crypto::auth::hmacsha256 as mac;
 
 pub fn crypto_auth_hmacsha256(mut call: Call) -> JsResult<JsBuffer> {
   let mut message_buf = call.check_argument::<JsBuffer>(0)?;

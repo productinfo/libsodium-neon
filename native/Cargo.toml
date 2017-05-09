@@ -15,4 +15,4 @@ neon-build = "0.1.17"
 [dependencies]
 libc = "> 0.1.0"
 neon = "0.1.17"
-sodiumoxide = { git = "https://github.com/wireapp/sodiumoxide", features = ["get-libsodium"] }
+rust_sodium = { git = "https://github.com/maidsafe/rust_sodium", rev = "a1a17b261a0081b94e10179a11816c7894708f34" }
