@@ -10,9 +10,9 @@ name = "libsodium_neon"
 crate-type = ["dylib"]
 
 [build-dependencies]
-neon-build = "0.1.17"
+neon-build = "0.1.18"
 
 [dependencies]
 libc = "> 0.1.0"
-neon = "0.1.17"
-rust_sodium = { git = "https://github.com/maidsafe/rust_sodium", rev = "a1a17b261a0081b94e10179a11816c7894708f34" }
+neon = "0.1.18"
+rust_sodium = "0.3.0"

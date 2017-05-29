@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "neon-cli": "0.1.17"
+    "neon-cli": "0.1.18"
   },
-  "description": "Node.js bindings to sodiumoxide.",
+  "description": "Node.js bindings to rust_sodium.",
   "devDependencies": {
     "eslint": "3.17.1",
     "jasmine": "2.5.3",
