@@ -21,8 +21,8 @@ const keyPair = libsodium.crypto_sign_keypair();
 ### Requirements
 
 - [Node.js](https://nodejs.org/)
-- Rust (use [rustup](https://rustup.rs/))
-- [Neon](https://github.com/neon-bindings/neon)
+- [Rust](https://www.rust-lang.org/install.html)
+- For Windows also [windows-build-tools](https://www.npmjs.com/package/windows-build-tools)
 
 
 ### Installation
@@ -33,13 +33,13 @@ Just install the needed packages for this project by running:
 npm install
 ```
 
-Afterwards you need to build the project:
+Afterwards you can build the project:
 
 ```bash
-neon build
+npm run build
 ```
 
-To test it with node, run:
+To test the native module, run:
 
 ```bash
 npm test

@@ -17,6 +17,7 @@
   },
   "scripts": {
     "lint": "eslint .",
+    "build": "neon build",
     "test": "jasmine test"
   },
   "version": "2.1.0"
