@@ -20,5 +20,5 @@
     "build": "neon build",
     "test": "jasmine test"
   },
-  "version": "2.1.0"
+  "version": "2.1.1"
 }
