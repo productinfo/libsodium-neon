@@ -16,13 +16,21 @@
 // along with this program. If not, see http://www.gnu.org/licenses/.
 //
 
+#![feature(test)]
+
 #[macro_use]
 extern crate neon;
 extern crate libc;
 extern crate rust_sodium;
 
+#[cfg(test)]
+extern crate test;
+
 mod external;
 mod internal;
+
+#[cfg(test)]
+mod benchmarks;
 
 use internal::auth;
 use internal::scalarmult;
