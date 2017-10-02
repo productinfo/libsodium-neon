@@ -1,12 +1,13 @@
 {
   "dependencies": {
-    "neon-cli": "0.1.18"
+    "neon-cli": "0.1.20"
   },
   "description": "Node.js bindings to rust_sodium.",
   "devDependencies": {
-    "eslint": "3.17.1",
-    "jasmine": "2.5.3",
-    "libsodium-wrappers-sumo": "0.4.9"
+    "cross-env": "5.0.5",
+    "eslint": "4.7.2",
+    "jasmine": "2.8.0",
+    "libsodium-wrappers-sumo": "0.5.4"
   },
   "license": "GPL-3.0",
   "main": "lib/index.js",
@@ -18,7 +19,7 @@
   "scripts": {
     "lint": "eslint .",
     "build": "neon build",
-    "test": "jasmine test"
+    "test": "cross-env JASMINE_CONFIG_PATH=test/support/jasmine.json jasmine"
   },
   "version": "2.1.1"
 }
