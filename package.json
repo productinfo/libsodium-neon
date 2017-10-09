@@ -22,5 +22,5 @@
     "postinstall": "neon build || echo \"Warning: could not install libsodium-neon.\"",
     "test": "cross-env JASMINE_CONFIG_PATH=test/support/jasmine.json jasmine"
   },
-  "version": "2.1.1"
+  "version": "2.1.1-autobuild"
 }
