@@ -4,7 +4,7 @@ sudo: false
 # http://docs.travis-ci.com/user/languages/javascript-with-nodejs/
 language: node_js
 node_js:
-  - "4"
+  - "8"
 
 # https://docs.travis-ci.com/user/languages/javascript-with-nodejs#Node.js-v4-(or-io.js-v3)-compiler-requirements
 env:
@@ -28,7 +28,7 @@ before_install:
 
 install:
   - npm install
-  - neon build
+  - npm run build
 
 # http://docs.travis-ci.com/user/pull-requests/
 script:
