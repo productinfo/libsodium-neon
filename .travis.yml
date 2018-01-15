@@ -25,15 +25,15 @@ cache:
 before_install:
   - curl https://sh.rustup.rs -sSf | sh -s -- -y
   - source "$HOME/.cargo/env"
+  - curl https://yarnpkg.com/install.sh -sSfL | bash -s --
 
 install:
-  - npm install
-  - npm run build
+  - yarn
+  - yarn build
 
 # http://docs.travis-ci.com/user/pull-requests/
 script:
-  - npm test
-  - npm run lint
+  - yarn test
 
 notifications:
   email: false

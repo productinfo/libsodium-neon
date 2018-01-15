@@ -4,10 +4,23 @@
   },
   "description": "Node.js bindings to rust_sodium.",
   "devDependencies": {
+    "babel-eslint": "8.2.1",
     "cross-env": "5.1.3",
     "eslint": "4.15.0",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-prettier": "2.4.0",
+    "eslint-plugin-react": "7.5.1",
+    "husky": "0.14.3",
     "jasmine": "2.8.0",
-    "libsodium-wrappers-sumo": "0.5.4"
+    "libsodium-wrappers-sumo": "0.7.3",
+    "lint-staged": "6.0.0",
+    "prettier": "1.10.2"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --ignore-path .prettierignore --fix",
+      "git add"
+    ]
   },
   "license": "GPL-3.0",
   "main": "lib/index.js",
@@ -18,7 +31,9 @@
   },
   "scripts": {
     "build": "cross-env RUST_SODIUM_DISABLE_PIE=1 neon build",
-    "lint": "eslint .",
+    "fix": "yarn test:jsScript --fix",
+    "precommit": "lint-staged",
+    "test:jsScript": "eslint --ignore-path .gitignore --ignore-path .prettierignore **/*.js",
     "test": "cross-env JASMINE_CONFIG_PATH=test/support/jasmine.json jasmine"
   },
   "version": "2.1.1"
