@@ -10,9 +10,9 @@ name = "libsodium_neon"
 crate-type = ["dylib"]
 
 [build-dependencies]
-neon-build = "0.1.18"
+neon-build = "0.1.22"
 
 [dependencies]
 libc = "> 0.1.0"
-neon = "0.1.18"
-rust_sodium = "0.3.0"
+neon = "0.1.22"
+rust_sodium = "0.7.0"
