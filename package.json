@@ -46,5 +46,5 @@
     "test:node": "jasmine --config=test/support/jasmine.json"
   },
   "types": "dist/index.d.ts",
-  "version": "2.1.1"
+  "version": "2.1.2"
 }
