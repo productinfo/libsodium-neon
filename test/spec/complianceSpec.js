@@ -23,13 +23,14 @@ const path = require('path');
 
 const _sodium = require('libsodium-wrappers-sumo');
 const helpers = require(path.resolve(__dirname, '..', 'helpers'));
-const libsodium_neon = require(path.resolve(__dirname, '..', '..', 'lib'));
+const libsodium_neon = require(path.resolve(__dirname, '..', '..'));
 
 let curve25519_public_key_bob;
 let curve25519_secret_key_alice;
 let curve25519_secret_key_bob;
 let keypair_alice;
 let keypair_bob;
+let sodium;
 
 describe('libsodium-neon', () => {
   it('assert_is_not_zeros', () => {
@@ -41,20 +42,22 @@ describe('libsodium-neon', () => {
 
   it('crypto_sign_keypair', async () => {
     await _sodium.ready;
-    const libsodium = _sodium;
+    sodium = _sodium;
 
-    keypair_alice = libsodium.crypto_sign_keypair();
+    keypair_alice = sodium.crypto_sign_keypair();
     expect(helpers.assert_is_not_zeros(keypair_alice.publicKey)).toBe(true);
     expect(helpers.assert_is_not_zeros(keypair_alice.privateKey)).toBe(true);
   });
 });
 
 describe('Compliance', () => {
-  it('crypto_sign_keypair', async () => {
+  beforeAll(async () => {
     await _sodium.ready;
-    const libsodium = _sodium;
+    sodium = _sodium;
+  });
 
-    keypair_alice = libsodium.crypto_sign_keypair();
+  it('crypto_sign_keypair', async () => {
+    keypair_alice = sodium.crypto_sign_keypair();
     keypair_bob = libsodium_neon.crypto_sign_keypair();
 
     expect(keypair_bob.publicKey.length).toBeGreaterThan(0);
@@ -63,29 +66,20 @@ describe('Compliance', () => {
   });
 
   it('crypto_auth_hmacsha256', async () => {
-    await _sodium.ready;
-    const libsodium = _sodium;
-
-    const auth = libsodium.crypto_auth_hmacsha256(helpers.message, helpers.key_material);
+    const auth = sodium.crypto_auth_hmacsha256(helpers.message, helpers.key_material);
     const authNeon = libsodium_neon.crypto_auth_hmacsha256(helpers.message, helpers.key_material);
     expect(auth).toEqual(authNeon);
   });
 
   it('crypto_sign_detached', async () => {
-    await _sodium.ready;
-    const libsodium = _sodium;
-
-    const sign = libsodium.crypto_sign_detached(helpers.message, keypair_alice.privateKey);
+    const sign = sodium.crypto_sign_detached(helpers.message, keypair_alice.privateKey);
     const signNeon = libsodium_neon.crypto_sign_detached(helpers.message, keypair_alice.privateKey);
     expect(sign).toEqual(signNeon);
   });
 
   it('crypto_sign_ed25519_sk_to_curve25519', async () => {
-    await _sodium.ready;
-    const libsodium = _sodium;
-
-    curve25519_secret_key_alice = libsodium.crypto_sign_ed25519_sk_to_curve25519(keypair_alice.privateKey);
-    const curve25519_secret_key_alice_neon = libsodium.crypto_sign_ed25519_sk_to_curve25519(keypair_alice.privateKey);
+    curve25519_secret_key_alice = sodium.crypto_sign_ed25519_sk_to_curve25519(keypair_alice.privateKey);
+    const curve25519_secret_key_alice_neon = sodium.crypto_sign_ed25519_sk_to_curve25519(keypair_alice.privateKey);
 
     curve25519_secret_key_bob = libsodium_neon.crypto_sign_ed25519_sk_to_curve25519(keypair_bob.privateKey);
     const curve25519_secret_key_bob_neon = libsodium_neon.crypto_sign_ed25519_sk_to_curve25519(keypair_bob.privateKey);
@@ -94,11 +88,8 @@ describe('Compliance', () => {
   });
 
   it('crypto_sign_ed25519_pk_to_curve25519', async () => {
-    await _sodium.ready;
-    const libsodium = _sodium;
-
-    const curve25519_public_key_alice = libsodium.crypto_sign_ed25519_pk_to_curve25519(keypair_alice.publicKey);
-    const curve25519_public_key_alice_neon = libsodium.crypto_sign_ed25519_pk_to_curve25519(keypair_alice.publicKey);
+    const curve25519_public_key_alice = sodium.crypto_sign_ed25519_pk_to_curve25519(keypair_alice.publicKey);
+    const curve25519_public_key_alice_neon = sodium.crypto_sign_ed25519_pk_to_curve25519(keypair_alice.publicKey);
 
     curve25519_public_key_bob = libsodium_neon.crypto_sign_ed25519_pk_to_curve25519(keypair_bob.publicKey);
     const curve25519_public_key_bob_neon = libsodium_neon.crypto_sign_ed25519_pk_to_curve25519(keypair_bob.publicKey);
@@ -108,10 +99,7 @@ describe('Compliance', () => {
   });
 
   it('crypto_scalarmult', async () => {
-    await _sodium.ready;
-    const libsodium = _sodium;
-
-    const scalar = libsodium.crypto_scalarmult(curve25519_secret_key_alice, curve25519_public_key_bob);
+    const scalar = sodium.crypto_scalarmult(curve25519_secret_key_alice, curve25519_public_key_bob);
     const scalar_neon = libsodium_neon.crypto_scalarmult(curve25519_secret_key_alice, curve25519_public_key_bob);
     expect(scalar).toEqual(scalar_neon);
   });
