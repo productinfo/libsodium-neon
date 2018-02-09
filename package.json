@@ -23,7 +23,7 @@
     "dist"
   ],
   "lint-staged": {
-    "*.js": [
+    "*.{js,ts}": [
       "eslint --ignore-path .prettierignore --fix",
       "git add"
     ]

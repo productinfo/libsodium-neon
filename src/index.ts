@@ -1,6 +1,6 @@
 /*
  * Wire
- * Copyright (C) 2017 Wire Swiss GmbH
+ * Copyright (C) 2018 Wire Swiss GmbH
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,8 +17,7 @@
  *
  */
 
-const path = require('path');
-const sodiumneon = require(path.resolve(__dirname, '..', 'native'));
+import * as sodium_native from '../native/';
 
 const obj_to_buffer = (obj: Uint8Array | Buffer): Uint8Array => {
   if (typeof Buffer.from === 'function') {
@@ -34,7 +33,7 @@ export = {
     message = obj_to_buffer(message);
     key = obj_to_buffer(key);
 
-    return new Uint8Array(sodiumneon.crypto_auth_hmacsha256(message, key));
+    return new Uint8Array(sodium_native.crypto_auth_hmacsha256(message, key));
   },
   crypto_auth_hmacsha256_BYTES: 32,
   crypto_auth_hmacsha256_KEYBYTES: 32,
@@ -43,7 +42,7 @@ export = {
     secret_key = obj_to_buffer(secret_key);
     public_key = obj_to_buffer(public_key);
 
-    return new Uint8Array(sodiumneon.crypto_scalarmult(secret_key, public_key));
+    return new Uint8Array(sodium_native.crypto_scalarmult(secret_key, public_key));
   },
   crypto_scalarmult_BYTES: 32,
   crypto_scalarmult_SCALARBYTES: 32,
@@ -55,24 +54,24 @@ export = {
     message = obj_to_buffer(message);
     secret_key = obj_to_buffer(secret_key);
 
-    return new Uint8Array(sodiumneon.crypto_sign_detached(message, secret_key));
+    return new Uint8Array(sodium_native.crypto_sign_detached(message, secret_key));
   },
   crypto_sign_ed25519_pk_to_curve25519(public_key: Uint8Array | Buffer): Uint8Array {
     public_key = obj_to_buffer(public_key);
 
-    return new Uint8Array(sodiumneon.crypto_sign_ed25519_pk_to_curve25519(public_key));
+    return new Uint8Array(sodium_native.crypto_sign_ed25519_pk_to_curve25519(public_key));
   },
   crypto_sign_ed25519_sk_to_curve25519(secret_key: Uint8Array | Buffer) {
     secret_key = obj_to_buffer(secret_key);
 
-    return new Uint8Array(sodiumneon.crypto_sign_ed25519_sk_to_curve25519(secret_key));
+    return new Uint8Array(sodium_native.crypto_sign_ed25519_sk_to_curve25519(secret_key));
   },
   crypto_sign_keypair(): {
-    keyType: 'curve25519' | 'ed25519' | 'x25519';
+    keyType: string;
     privateKey: Uint8Array;
     publicKey: Uint8Array;
   } {
-    const key_pair = sodiumneon.crypto_sign_keypair();
+    const key_pair = sodium_native.crypto_sign_keypair();
 
     return {
       keyType: key_pair.key_type,
@@ -89,6 +88,6 @@ export = {
     message = obj_to_buffer(message);
     public_key = obj_to_buffer(public_key);
 
-    return sodiumneon.crypto_sign_verify_detached(signature, message, public_key);
+    return sodium_native.crypto_sign_verify_detached(signature, message, public_key);
   },
 };

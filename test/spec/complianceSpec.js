@@ -19,11 +19,9 @@
 
 /* eslint no-magic-numbers: "off" */
 
-const path = require('path');
-
 const _sodium = require('libsodium-wrappers-sumo');
-const helpers = require(path.resolve(__dirname, '..', 'helpers'));
-const libsodium_neon = require(path.resolve(__dirname, '..', '..'));
+const helpers = require('../helpers/');
+const libsodium_neon = require('../../');
 
 let curve25519_public_key_bob;
 let curve25519_secret_key_alice;
