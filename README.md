@@ -1,4 +1,4 @@
-# Wire
+# libsodium-neon
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/wireapp/libsodium-neon.svg)](https://greenkeeper.io/)
 
