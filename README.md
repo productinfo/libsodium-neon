@@ -1,4 +1,4 @@
-# libsodium-neon
+# Wire
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/wireapp/libsodium-neon.svg)](https://greenkeeper.io/)
 
@@ -8,8 +8,9 @@ You can find the published source code at [github.com/wireapp](https://github.co
 
 For licensing information, see the attached LICENSE file and the list of third-party licenses at [wire.com/legal/licenses/](https://wire.com/legal/licenses/).
 
+## libsodium-neon
 
-## Usage
+### Usage
 
 ```javascript
 const libsodium = require('libsodium-neon');
@@ -18,16 +19,16 @@ const keyPair = libsodium.crypto_sign_keypair();
 ```
 
 
-## Building
+### Building
 
-### Requirements
+#### Requirements
 
 - [Node.js](https://nodejs.org/)
 - [Rust](https://www.rust-lang.org/install.html)
 - For Windows also [windows-build-tools](https://www.npmjs.com/package/windows-build-tools)
 
 
-### Installation
+#### Installation
 
 Just install the needed packages for this project by running:
 
@@ -48,7 +49,7 @@ npm test
 ```
 
 
-## Speed comparison
+### Speed comparison
 
 System specs: `macOS 10.12 @ 2.6 GHz Intel Core i7, 16 GB RAM`
 
